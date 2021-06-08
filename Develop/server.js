@@ -21,6 +21,6 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
 app.use(require("./routes/htmlRoutes.js"));
 app.use(require("./routes/api.js"));
 
-app.listen(PORT, function () {
+app.listen(PORT, () => {
   console.log(`Now listening on port: ${PORT}`);
 });
