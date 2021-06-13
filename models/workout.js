@@ -3,16 +3,16 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 // gets workouts in array
-const workoutSchema = new Schema({
+const ExerciseSchema = new Schema({
   date: {
     type: Date,
-    default: Date.now,
+    default: Date.now(),
   },
-  workout: [
+  exercises: [
     {
       name: {
-        type: String,
-        trim: true,
+        type: Schema.Types.ObjectId,
+        ref: "exercise"
       },
       type: {
         type: String,
@@ -47,6 +47,6 @@ const workoutSchema = new Schema({
   },
 });
 
-const workout = mongoose.model("Workout", workoutSchema);
+const Exercise = mongoose.model("Exercise", ExerciseSchema);
 
-module.exports = workout;
+module.exports = Exercise;
